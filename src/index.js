@@ -113,11 +113,13 @@ class Typeahead extends React.Component {
     );
   }
 }
+
 Typeahead.propTypes = {
   list: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
   initialSearchVal: React.PropTypes.string,
   showOnEmpty: React.PropTypes.bool,
 };
+
 Typeahead.defaultProps = {
   list: [],
   initialSearchVal: '',

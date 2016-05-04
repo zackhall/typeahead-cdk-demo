@@ -10,6 +10,12 @@ storiesOf('Typeahead', module)
   .add('showing empty values.', () => (
     <Typeahead
       list={jsLibs.list}
-      showOnEmpty={true}
+      showOnEmpty
+    />
+  ))
+  .add('prepopulated search val.', () => (
+    <Typeahead
+      list={jsLibs.list}
+      initialSearchVal="Re"
     />
   ));
