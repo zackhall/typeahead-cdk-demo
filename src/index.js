@@ -80,6 +80,7 @@ class Typeahead extends React.Component {
       (val) => {
         return searchVal ? val.toLowerCase().startsWith(searchVal.toLowerCase()) : showOnEmpty;
       };
+
     const map = (val, i, arr) => {
       let divider = i < arr.length - 1 && Divider;
       return (
@@ -97,6 +98,17 @@ class Typeahead extends React.Component {
       );
     };
 
+    const results = list.filter(filter).map(map);
+
+    const resultsElem =
+      results.length > 0 || !searchVal
+      ? (
+        <ul style={styles.list}>
+          { results }
+        </ul>
+      )
+      : (<span>Sorry, no matching results.</span>);
+
     return (
       <div style={styles.container}>
         <input
@@ -107,7 +119,7 @@ class Typeahead extends React.Component {
           onChange={this._onSearchUpdate}
         />
         <ul style={styles.list}>
-          { list.filter(filter).map(map)}
+          { resultsElem }
         </ul>
       </div>
     );
